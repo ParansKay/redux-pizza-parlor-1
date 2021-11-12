@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     }).catch((error) => {
         console.log('Error GET /api/order', error);
         res.sendStatus(500);  
-    });
+    }); 
 })
 
 // POST a new order

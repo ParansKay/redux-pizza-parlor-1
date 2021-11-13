@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
 import "../Checkout/Checkout.css"
-import {Button, Table, }from 'react-bootstrap';
-
+import {Table}from 'react-bootstrap';
+import {Button} from '@material-ui/core'
 
 
 function Checkout() {
@@ -21,7 +21,6 @@ function Checkout() {
         </div>
         <div className="delivery-takeout">
           <p className="forDelivery">For Delivery/Takeout</p>
-          <Button variant="primary">blabla</Button>
         </div>  
       </div>
       
@@ -43,6 +42,10 @@ function Checkout() {
           </tr>
         </tbody>
       </Table>
+      <p className="total">Total:</p>
+      <div className="checkoutButton">
+        <Button className="primaryButton" variant="contained">Checkout</Button>
+      </div>
     </div>
   )
 }

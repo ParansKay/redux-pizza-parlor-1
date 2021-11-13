@@ -3,15 +3,33 @@
     padding: 5px 20px;
 }
 
-.userInfo, p{
+.userInfo p{
     margin: 5px 0px ;
 }
 
 .userInfo-Delivery-Takeout{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 18px;
 }
 
 .forDelivery{
     font-size: 21px;
+}
+
+.total{
+    display: flex;
+    justify-content: end;
+    font-size: 27px;
+}
+
+.checkoutButton{
+    display: flex;
+    justify-content: end;
+}
+
+.primaryButton{
+    color:white !important;
+    background-color:  red !important;
+    
 }

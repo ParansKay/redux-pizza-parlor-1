@@ -4,8 +4,8 @@ import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 //import redux
-import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import logger from 'redux-logger'; //this essentially acts as a console log 
 import axios from 'axios';
 
@@ -19,20 +19,27 @@ const pizzaListReducer = (state = [], action) => {
   return state;
 }; // end pizzaListReducer
 
+const cart = (state = [], action) => {
+  if (action.type === 'ADD_TO_CART') {
+    return [...state, action.payload];
+  }
+  return state;
+}; // end pizzaListReducer
 // a store
 const storeInstance = createStore(
-    combineReducers(
-      {
-        pizzaListReducer
-      }
-    ),
-    applyMiddleware(
-      logger
-    )
-  );
+  combineReducers(
+    {
+      pizzaListReducer,
+      cart
+    }
+  ),
+  applyMiddleware(
+    logger
+  )
+);
 
 ReactDOM.render(
-    <React.StrictMode>
+  <React.StrictMode>
     <Provider store={storeInstance}>
       <App />
     </Provider>
@@ -40,4 +47,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'));
 
-  reportWebVitals();
+reportWebVitals();

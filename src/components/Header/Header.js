@@ -10,6 +10,7 @@ function Header() {
   return (
     <div>
       <h1>Header</h1>
+      <p>Test</p>
     </div>
   )
 }

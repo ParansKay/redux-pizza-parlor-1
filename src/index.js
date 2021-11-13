@@ -12,16 +12,18 @@ import axios from 'axios';
 // reducer
 // creating a global variable "pizza", that is given a state and action 
 // every time an action takes place, it will run the reducer
-const pizza = (state = "I love pizza", action) => {
-    console.log("I'm in pizza!", action);
-    return state;
-}
+const pizzaListReducer = (state = [], action) => {
+  if (action.type === 'GET_PIZZA_LIST') {
+    return action.payload;
+  }
+  return state;
+}; // end pizzaListReducer
 
 // a store
 const storeInstance = createStore(
     combineReducers(
       {
-        pizza
+        pizzaListReducer
       }
     ),
     applyMiddleware(

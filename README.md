@@ -1,16 +1,16 @@
-# React Pizza Parlor
+[x]# React Pizza Parlor
 
 Before you get started make sure to read through **ALL** requirements and outline a plan for your group. Assign out tasks and use branches to allow team members to work in parallel.
 
-### Setup
+[x]### Setup
 
 Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `pizza_parlor` database.
 
-**Import data**
+[x]**Import data**
 
 Right now, the owner enters all of the orders in SQL, but they want any of their employees to be able to enter a new order. The owner has provided some of the server side routes and a way to create their database with (`database.sql`). Your team should build out the following views.
 
-**Start your server**
+[x]**Start your server**
 
 ```
 npm install
@@ -19,13 +19,13 @@ npm run server
 
 Now that the server is running, open a new terminal tab with `cmd + t` and start the react client app.
 
-**Start your client**
+[x]**Start your client**
 
 ```
 npm run client
 ```
 
-## Base Mode ad API DOCS
+[]## Base Mode ad API DOCS
 
 The tasks for Base Mode are broken down further [on this Trello Board](https://trello.com/b/aWXfG8D6/redux-pizza-parlor). Take time before diving into the code to copy this board and build out the plan even further.
 

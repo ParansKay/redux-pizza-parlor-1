@@ -11,6 +11,7 @@ function PizzaItem(props) {
   return (
     <div>
       <h1>PizzaItem</h1>
+      <p>{JSON.stringify(props.pizza)}</p>
     </div>
   )
 }

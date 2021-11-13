@@ -7,11 +7,12 @@ let PizzaItems = []
 function PizzaItem(props) {
 
   // const reducerName = useSelector(store => store.reducerName);
+  const [buttonState, setButtonState] = useState(true);
 
-  const PizzaToSend = {
-    id: props.pizza.id,
-    name: props.pizza.name,
-    price: props.pizza.price
+  const addToCart = () => {
+    dispatch({ type: 'ADD_TO_CART', payload: props.pizza })
+    setButtonState(false);
+
   }
 
 
@@ -25,7 +26,10 @@ function PizzaItem(props) {
       <h5 className="pizzaDescription">{props.pizza.description}</h5>
       <div className="pizzaItemButton">
         <h4>${props.pizza.price}</h4>
-        <Button variant="contained" color="primary" size="small" onClick={() => dispatch({ type: 'ADD_TO_CART', payload: props.pizza })}>Add to Cart</Button>
+        {buttonState == true ?
+          <Button variant="contained" color="primary" size="small" onClick={addToCart}>Add to Cart</Button> :
+          <Button variant="contained" color="primary" size="small" onClick={addToCart} disabled>Add to Cart</Button>
+        }
       </div>
     </div >
   )

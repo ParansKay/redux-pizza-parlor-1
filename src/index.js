@@ -8,6 +8,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger'; //this essentially acts as a console log 
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // reducer
 // creating a global variable "pizza", that is given a state and action 

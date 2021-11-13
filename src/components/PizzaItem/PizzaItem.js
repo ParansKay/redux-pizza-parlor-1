@@ -12,6 +12,7 @@ function PizzaItem(props) {
     <div>
       <h1>PizzaItem</h1>
       <p>{JSON.stringify(props.pizza)}</p>
+      <p>style this</p>
     </div>
   )
 }

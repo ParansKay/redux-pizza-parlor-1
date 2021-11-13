@@ -12,6 +12,7 @@ function Checkout() {
   // const reducerName = useSelector(store => store.reducerName);
   const dispatch = useDispatch();
 
+  //create a variable that stores an object for the entire order 
   const[ newOrder, setNewOrder ]=useState({
     customer_name: "Hannah", //waiting for store data
     street_address: "hiawatha ave",//waiting for store data
@@ -25,6 +26,7 @@ function Checkout() {
     }] 
 })
 
+  //create an axios post req to send over the new order object
   const addOrder = ()=>{
     console.log( 'in addItem' );
     axios.post( '/api/order', newOrder ).then ( (response)=>{
@@ -35,7 +37,6 @@ function Checkout() {
         alert('nope');
     })
 }
-
 
 
   return (

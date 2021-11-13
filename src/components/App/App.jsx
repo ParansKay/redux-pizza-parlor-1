@@ -4,6 +4,7 @@ import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import Checkout from '../Checkout/Checkout'
 
 
 
@@ -35,8 +36,8 @@ function App() {
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
   
-      <p>Pizza is great.</p>
-      <PizzaList />
+      {/* <PizzaList /> */}
+      <Checkout />
     </div>
 
   );

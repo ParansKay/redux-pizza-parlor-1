@@ -1,0 +1,17 @@
+.checkout-page{
+    border: 1px solid black;
+    padding: 5px 20px;
+}
+
+.userInfo, p{
+    margin: 5px 0px ;
+}
+
+.userInfo-Delivery-Takeout{
+    display: flex;
+    justify-content: space-between;
+}
+
+.forDelivery{
+    font-size: 21px;
+}

@@ -4,7 +4,7 @@ import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Header from '../Header/Header';
+import Header from '../Header/Header'
 
 
 

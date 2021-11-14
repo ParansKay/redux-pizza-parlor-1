@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import React from 'react';
-// import { Button } from '@material-ui/core'
+// import material ui card styling 
 import Button from '@mui/material/Button';
-
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { flexbox } from '@mui/system';
 
-let PizzaItems = []
 
 function PizzaItem(props) {
 
@@ -19,21 +16,26 @@ function PizzaItem(props) {
   const cart = useSelector(store => store.cart);
   console.log('cart -------->', cart);
 
+  // set original button state to be true -- use in conditional operator later
   const [buttonState, setButtonState] = useState(true);
 
+  // when AddToCart button is pressed, send dispatch to cart reducer with pizza info
   const addToCart = () => {
     dispatch({ type: 'ADD_TO_CART', payload: props.pizza });
+    // change buttonState to false
     setButtonState(!buttonState);
 
   }
 
-
+  // when Remove From Cart button is pressed, send pizza id to reducer for splicing
   const removeFromCart = () => {
 
+    // check if id is within cart array - if so, send dispatch with index of id
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].id === props.pizza.id) {
         console.log('cart[i].id', cart[i].id, 'i:', i);
         dispatch({ type: 'REMOVE_FROM_CART', payload: i });
+        // change buttonState to true
         setButtonState(!buttonState);
         return;
       }
@@ -43,11 +45,6 @@ function PizzaItem(props) {
   }
 
   const dispatch = useDispatch();
-
-
-
-
-
 
 
   return (

@@ -7,14 +7,31 @@ let PizzaItems = []
 function PizzaItem(props) {
 
   // const reducerName = useSelector(store => store.reducerName);
+  const cart = useSelector(store => store.cart);
+  console.log('cart -------->', cart);
+
   const [buttonState, setButtonState] = useState(true);
 
   const addToCart = () => {
-    dispatch({ type: 'ADD_TO_CART', payload: props.pizza })
-    setButtonState(false);
+    dispatch({ type: 'ADD_TO_CART', payload: props.pizza });
+    setButtonState(!buttonState);
 
   }
 
+
+  const removeFromCart = () => {
+
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === props.pizza.id) {
+        console.log('cart[i].id', cart[i].id, 'i:', i);
+        dispatch({ type: 'REMOVE_FROM_CART', payload: i });
+        setButtonState(!buttonState);
+        return;
+      }
+    }
+
+
+  }
 
   const dispatch = useDispatch();
 
@@ -28,7 +45,7 @@ function PizzaItem(props) {
         <h4>${props.pizza.price}</h4>
         {buttonState == true ?
           <Button variant="contained" color="primary" size="small" onClick={addToCart}>Add to Cart</Button> :
-          <Button variant="contained" color="primary" size="small" onClick={addToCart} disabled>Add to Cart</Button>
+          <Button variant="contained" color="secondary" size="small" onClick={removeFromCart}>Remove from Cart</Button>
         }
       </div>
     </div >

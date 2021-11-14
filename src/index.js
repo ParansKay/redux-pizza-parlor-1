@@ -21,10 +21,17 @@ const pizzaListReducer = (state = [], action) => {
 
 const cart = (state = [], action) => {
   if (action.type === 'ADD_TO_CART') {
-    return [...state, action.payload];
+    state = [...state, action.payload];
+    return state;
+  }
+  else if (action.type === 'REMOVE_FROM_CART') {
+    console.log('action.payload:', action.payload);
+    state.splice(action.payload, 1);
+    return state;
   }
   return state;
 }; // end pizzaListReducer
+
 // a store
 const storeInstance = createStore(
   combineReducers(

@@ -1,6 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { Button } from '@material-ui/core';
+import React from 'react';
+// import { Button } from '@material-ui/core'
+import Button from '@mui/material/Button';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { flexbox } from '@mui/system';
 
 let PizzaItems = []
 
@@ -36,20 +45,46 @@ function PizzaItem(props) {
   const dispatch = useDispatch();
 
 
+
+
+
+
+
   return (
-    <div className="pizzaItem">
-      <img className="pizzaItemImage" src={props.pizza.image_path}></img>
-      <h3>{props.pizza.name}</h3>
-      <h5 className="pizzaDescription">{props.pizza.description}</h5>
-      <div className="pizzaItemButton">
-        <h4>${props.pizza.price}</h4>
-        {buttonState == true ?
-          <Button variant="contained" color="primary" size="small" onClick={addToCart}>Add to Cart</Button> :
-          <Button variant="contained" color="secondary" size="small" onClick={removeFromCart}>Remove from Cart</Button>
-        }
+    <div>
+      <div className="pizzaItem" >
+        <Card sx={{ maxWidth: 345, minHeight: 460, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <CardMedia
+            component="img"
+            height="200"
+            image={props.pizza.image_path}
+            alt={props.pizza.name}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {props.pizza.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {props.pizza.description}
+            </Typography>
+            <Typography gutterBottom variant="h6" component="div">
+              ${props.pizza.price}
+            </Typography>
+          </CardContent>
+          <CardActions sx={{ justifyContent: "center" }}>
+            {buttonState == true ?
+              <Button className="pizzItemButton" variant="contained" color="secondary" size="small" onClick={addToCart}>Add to Cart</Button> :
+              <Button className="pizzItemButton" variant="contained" color="error" size="small" onClick={removeFromCart}>Remove from Cart</Button>
+            }
+          </CardActions>
+        </Card>
+
       </div>
-    </div >
+
+    </div>
   )
 }
 
 export default PizzaItem;
+
+

@@ -30,7 +30,6 @@
 }
 
 .pizzaItem{
-  background-color: rgb(144, 144, 196);
   min-width: 250px;
   max-width: 325px;
   width: auto;
@@ -41,24 +40,10 @@
   border-radius: 10px;
   display:flex;
   flex-direction: column;
+  /* position:relative; */
+  justify-content: space-between;
 
 
 }
 
-.pizzaDescription{
-  text-align: left;
-  padding-left: 10px;
-}
 
-.pizzaItemImage{
-
-  width: 100%;
-  height: auto;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.pizzaItemButton{
-  margin-top: auto;
-
-}

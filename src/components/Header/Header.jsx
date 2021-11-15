@@ -1,5 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 
 function Header() {
@@ -33,14 +35,17 @@ function Header() {
 
   return (
     <div>
-      <table border="3">
+      <table>
       {/* <colgroup>
         <col width="150">
         <col width="150">
         </colgroup> */}
         <tr className="borderTest">
            <th id="element1">Prime Pizza Test</th>
-           <th id="element2">total: {total}</th>
+           {/* <th><ShoppingCartIcon/></th> */}
+        </tr>
+        <tr>
+        <th id="element2" ><ShoppingCartIcon className="icon"/>total: ${total}</th>
         </tr>
       </table>
     </div>

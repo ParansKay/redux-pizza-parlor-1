@@ -66,7 +66,7 @@ function Checkout() {
           </tr>
         </thead>
         <tbody>
-          {/* *** waiting to map through the new store item of pizzas that were added to the cart */}
+          {/* *** waiting to map through the cart that will be added to the store instead of pizzaListReducer */}
           {
             pizzaListReducer.map( pizza =>(<CheckoutItem className="itemBox" pizza={pizza} key={pizza.id}/>))
           }

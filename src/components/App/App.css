@@ -2,14 +2,27 @@
   text-align: center;
 }
 
-/* .App-header {
+.App-header {
   background-color: #222;
   height: 70px;
   padding: 20px;
   color: white;
   margin-bottom: 20px;
+}
+
+#element1{
   text-align: left;
-} */
+  float:left; margin-right: 20%;
+  width:80em;
+  max-width: 80em;
+}
+
+#element2{
+  text-align: right;
+  /* margin-left:100%; */
+  width:20em;
+  max-width: 20em;
+}
 
 .App-title {
   font-size: 2em;

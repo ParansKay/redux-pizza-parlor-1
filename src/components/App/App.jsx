@@ -4,6 +4,9 @@ import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
+
 
 
 
@@ -36,7 +39,12 @@ function App() {
       </header>
   
       <p>Pizza is great.</p>
-      <PizzaList />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <PizzaList /> } ></Route>
+          <Route path="/customerInfo" element={ <CustomerInfo /> } ></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
 
   );

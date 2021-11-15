@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger'; //this essentially acts as a console log 
-import axios from 'axios';
+
 
 // reducer
 // creating a global variable "pizza", that is given a state and action 
@@ -19,17 +19,28 @@ const pizzaListReducer = (state = [], action) => {
   return state;
 }; // end pizzaListReducer
 
+const customerInfo = (state = [], action) => {
+  console.log('hello from the customerInfo reducer');
+  if (action.type === `ADD_CUSTOMER`) {
+      return action.payload;
+  }
+  return state;
+
+}
+
 // a store
 const storeInstance = createStore(
     combineReducers(
       {
-        pizzaListReducer
+        pizzaListReducer,
+        customerInfo
       }
     ),
     applyMiddleware(
       logger
     )
   );
+
 
 ReactDOM.render(
     <React.StrictMode>

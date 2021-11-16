@@ -4,8 +4,8 @@ import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 //import redux
-import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import logger from 'redux-logger'; //this essentially acts as a console log 
 
 
@@ -29,16 +29,26 @@ const customerInfo = (state = [], action) => {
 
 }
 
-
-
+const cart = (state = [], action) => {
+  if (action.type === 'ADD_TO_CART') {
+    state = [...state, action.payload];
+    return state;
+  }
+  else if (action.type === 'REMOVE_FROM_CART') {
+    console.log('action.payload:', action.payload);
+    state.splice(action.payload, 1);
+    return state;
+  }
+  return state;
+}; // end pizzaListReducer
 
 // a store
 const storeInstance = createStore(
     combineReducers(
       {
         pizzaListReducer,
-
-        customerInfo
+        customerInfo,
+        cart
       }
     ),
     applyMiddleware(
@@ -47,8 +57,10 @@ const storeInstance = createStore(
   );
 
 
+
+
 ReactDOM.render(
-    <React.StrictMode>
+  <React.StrictMode>
     <Provider store={storeInstance}>
       <App />
     </Provider>
@@ -56,4 +68,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'));
 
-  reportWebVitals();
+reportWebVitals();

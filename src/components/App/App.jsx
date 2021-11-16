@@ -4,10 +4,11 @@ import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import Admin from '../Admin/Admin';
 
 
 
-function App() {
+function App(props) {
   useEffect(() => {
     console.log('in useEffect');
     getPizzaList();
@@ -37,6 +38,7 @@ function App() {
   
       <p>Pizza is great.</p>
       <PizzaList />
+      <Admin/>
     </div>
 
   );

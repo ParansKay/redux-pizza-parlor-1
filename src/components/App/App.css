@@ -1,13 +1,8 @@
-.App {
-  text-align: center;
-}
-
 .App-header {
   background-color: rgb(71, 71, 134);
   height: 70px;
   padding: 20px;
   color: white;
-  margin-bottom: 20px;
 }
 
 #element1{
@@ -33,6 +28,7 @@ max-width: 60em;
 .App-title {
   font-size: 2em;
 }
+
 
 #pizzaList{
   background-color: rgb(214, 214, 237);
@@ -65,5 +61,6 @@ max-width: 60em;
 
 
 }
+
 
 

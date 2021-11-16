@@ -2,8 +2,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
 import axios from 'axios';
 import Order from '../Order/Order';
-import { Table } from 'react-bootstrap';
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 
 function Admin(props) {

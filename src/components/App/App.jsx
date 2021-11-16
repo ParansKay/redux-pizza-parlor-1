@@ -3,17 +3,16 @@ import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
-
+import Admin from '../Admin/Admin';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
-
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header/Header'
 
 
 
 
-function App() {
+function App(props) {
   useEffect(() => {
     console.log('in useEffect');
     getPizzaList();
@@ -43,13 +42,14 @@ function App() {
   
       <p>Pizza is great.</p>
 
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <PizzaList /> } ></Route>
+          <Route path="/admin" element={ <Admin /> } ></Route>
           <Route path="/customerInfo" element={ <CustomerInfo /> } ></Route>
         </Routes>
       </BrowserRouter>
-
     </div>
 
   );

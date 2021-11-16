@@ -3,7 +3,8 @@ import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Header from '../Header/Header'
 
 
 
@@ -14,7 +15,7 @@ function App() {
   }, []);
   
   
-  const dispatch = useDispatch(); //this code allows us how we call the redux listener
+  const dispatch = useDispatch(); //this code allows us to call the redux listener
 
   const getPizzaList = () => {
     axios.get('/api/pizza').then((res) => { 
@@ -32,10 +33,11 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
+      <Header />
       </header>
   
       <p>Pizza is great.</p>
+    
       <PizzaList />
     </div>
 

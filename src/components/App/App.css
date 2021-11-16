@@ -3,13 +3,55 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(71, 71, 134);
   height: 70px;
   padding: 20px;
   color: white;
   margin-bottom: 20px;
 }
 
+#element1{
+font-size: 2em;
+text-align: left;
+padding-left: 4em;
+width:250em;
+max-width: 250em;
+}
+
+#element2{
+text-align: right;
+padding-right: 7em;
+width:60em;
+max-width: 60em;
+}
+
+.icon{
+  vertical-align: bottom;
+}
+
+
+
+
+
+
+
+/* #element1{
+  text-align: left;
+  margin-right: 20%;
+  width:250em;
+  max-width: 250em;
+  padding-left: 5#em;
+} */
+
+/* #element2{
+  text-align: left;
+  margin-left:100%;
+  width:60em;
+  max-width: 60em;
+} */
+
 .App-title {
   font-size: 2em;
 }
+
+

@@ -13,11 +13,12 @@ import logger from 'redux-logger'; //this essentially acts as a console log
 // creating a global variable "pizza", that is given a state and action 
 // every time an action takes place, it will run the reducer
 const pizzaListReducer = (state = [], action) => {
-  if (action.type === 'GET_PIZZA_LIST') {
+  if (action.type === 'GET_PIZZA_LIST'){
     return action.payload;
   }
   return state;
 }; // end pizzaListReducer
+
 
 const customerInfo = (state = [], action) => {
   console.log('hello from the customerInfo reducer');
@@ -28,11 +29,15 @@ const customerInfo = (state = [], action) => {
 
 }
 
+
+
+
 // a store
 const storeInstance = createStore(
     combineReducers(
       {
         pizzaListReducer,
+
         customerInfo
       }
     ),

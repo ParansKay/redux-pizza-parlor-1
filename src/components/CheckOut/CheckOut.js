@@ -4,7 +4,7 @@ import "../Checkout/Checkout.css"
 import {Table}from 'react-bootstrap';
 import {Button} from '@material-ui/core'
 import axios from 'axios';
-import CheckoutItem from '../CheckoutItem/CheckoutItem';
+import CheckoutItem from '../CheckoutItem/CheckOutItem';
 
 
 function Checkout() {

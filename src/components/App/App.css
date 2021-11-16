@@ -1,9 +1,4 @@
-.App-header {
-  background-color: rgb(71, 71, 134);
-  height: 70px;
-  padding: 20px;
-  color: white;
-}
+
 
 #element1{
 font-size: 2em;
@@ -64,3 +59,9 @@ max-width: 60em;
 
 
 
+.App-header {
+  background-color: rgb(71, 71, 134);
+  height: 70px;
+  padding: 20px;
+  color: white;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import './App.css';
+import '../App/App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
-import Checkout from '../Checkout/CheckOut';
+import Checkout from '../CheckOut/CheckOut';
 import Admin from '../Admin/Admin';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';

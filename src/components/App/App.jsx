@@ -8,10 +8,14 @@ import { useDispatch } from 'react-redux';
 
 
 function App() {
+
+
   useEffect(() => {
     console.log('in useEffect');
     getPizzaList();
   }, []);
+
+
   
   
   const dispatch = useDispatch(); //this code allows us how we call the redux listener
@@ -33,6 +37,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
+        
       </header>
   
       <p>Pizza is great.</p>

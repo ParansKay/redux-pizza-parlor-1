@@ -10,8 +10,10 @@ function PizzaItem(props) {
 
   return (
     <div>
-      <h1>PizzaItem</h1>
-      <p>{JSON.stringify(props.pizza)}</p>
+      <h1>{props.pizza.name}</h1>
+      <p>description: {props.pizza.description}</p>
+      <p>price: {props.pizza.price}</p>
+      <img src={props.pizza.img_path} alt="img" />
     </div>
   )
 }

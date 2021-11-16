@@ -1,9 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'; 
+
+// Components
+import PizzaList from '../PizzaList/PizzaList';
+import Admin from '../Admin/Admin';
+import CheckOut from '../CheckOut/CheckOut';
+import CheckOutItem from '../CheckOutItem/CheckOutItem'; 
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
+import Header from '../Header/Header';
+import PizzaItem from '../PizzaItem/PizzaItem';
 
 
 
@@ -32,12 +41,22 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
+      <Header />
       </header>
-  
-      <p>Pizza is great.</p>
-      <PizzaList />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <PizzaList /> } ></Route>
+          <Route path="/checkout" element={ <CheckOut /> } ></Route>
+
+          <Route path="/customerInfo" element={ <CustomerInfo /> } ></Route>
+          <Route path="/admin" element={ <Admin /> } ></Route>
+
+          
+        </Routes>
+      </BrowserRouter>
     </div>
+
 
   );
 }

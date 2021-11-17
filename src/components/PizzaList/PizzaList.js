@@ -11,15 +11,6 @@ function PizzaList(props) {
   // const reducerName = useSelector(store => store.reducerName);
   const pizzaListReducer = useSelector(store => store.pizzaListReducer);
 
-
-  // const getPizzas =() =>{
-  //   axios.get( '/api/pizza' ).then (( response )=>{
-  //     console.log( 'back from GET:', response.data )
-  //   })
-  //   .catch( ( err )=>{
-  //     alert( 'uh oh' );
-  //   })
-  // }
   
 
   return (
@@ -31,7 +22,10 @@ function PizzaList(props) {
       {/* map through the pizzaListReducer and display each result in a PizzaItem component */}
       {pizzaListReducer.map( pizza =>(<PizzaItem className="itemBox" pizza={pizza} key={pizza.id}/>))}
 
-{/* <button onClick={ getPizzas }>Test</button> */}
+      <Link to="/customerinfo"><Button className="pizzaListButton" variant="contained" color="secondary" size="small">
+              Customer Info
+            </Button>
+            </Link>
 
     </div>
 

@@ -16,6 +16,21 @@ function Checkout() {
   const cart = useSelector(store => store.cart);
   const customerInfo = useSelector(store => store.customerInfo);
 
+  useEffect(() =>{
+    pizzaId();
+  }, [] );
+
+  //create a function that loops through the cart reducer and returns an array with all of the ids and quantities of the pizzas in the cart as an object 
+let pizzaIds = [];
+const pizzaId = () =>{
+  for (let i=0; i<cart.length; i++){
+    pizzaIds.push({
+      id: cart[i].id,
+      quantity: 1
+    });
+  }
+}
+
   //create a variable that stores an object for the entire order 
   //pass the new order via props to ConfirmModal to be able to do the post req in CornfirmModal 
   const[ newOrder, setNewOrder ]=useState({
@@ -26,17 +41,14 @@ function Checkout() {
     type: customerInfo.type,
     //waiting for Paran & Rachel to bring the total to the store 
     total: 20,
-    pizzas: [{
-      //need to figure out how to get the pizza id
-      id: 3,
-      quantity: 2
-    }] 
+    pizzas: pizzaIds
 })
+
 
 
   return (
     <div className="checkout-page">
-      <Button variant="secondary"><Link to="/customerInfo">back</Link></Button>
+      <Button variant="contained"><Link to="/customerInfo">back</Link></Button>
       <h2>Step 3: Checkout</h2>
       <div className="userInfo-Delivery-Takeout">
         <div className="userInfo">

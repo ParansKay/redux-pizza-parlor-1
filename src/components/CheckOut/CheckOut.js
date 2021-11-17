@@ -6,6 +6,7 @@ import {Button} from '@material-ui/core'
 import axios from 'axios';
 import CheckoutItem from '../CheckoutItem/CheckOutItem';
 import { Link } from 'react-router-dom';
+import ConfirmModal from './ConfirmModal';
 
 
 
@@ -15,32 +16,22 @@ function Checkout() {
   const cart = useSelector(store => store.cart);
   const customerInfo = useSelector(store => store.customerInfo);
 
-
   //create a variable that stores an object for the entire order 
+  //pass the new order via props to ConfirmModal to be able to do the post req in CornfirmModal 
   const[ newOrder, setNewOrder ]=useState({
     customer_name: customerInfo.customer_name, 
     street_address: customerInfo.street_address,
     city: customerInfo.city,
     zip: customerInfo.zip,
     type: customerInfo.type,
+    //waiting for Paran & Rachel to bring the total to the store 
     total: 20,
     pizzas: [{
-      id: 3, 
-      quantity: 3 
+      //need to figure out how to get the pizza id
+      id: 3,
+      quantity: 2
     }] 
 })
-
-  //create an axios post req to (/api/order) to send over the new order object to the server which will then send it to the db
-  const addOrder = ()=>{
-    console.log( 'in addItem' );
-    axios.post( '/api/order', newOrder ).then ( (response)=>{
-        console.log('back from POST:', response.data);
-        alert('order added');
-    }).catch( (err)=>{
-        console.log(err);
-        alert('nope');
-    })
-}
 
 
   return (
@@ -77,7 +68,8 @@ function Checkout() {
       {/* <------need to add total to the store, currently it's in header and it isn't being dispatched to the store (waiting to do newOrder.total) -----> */}
       <p className="total">Total:  </p>
       <div className="checkoutButton">
-        <Button onClick={addOrder} className="primaryButton" variant="contained">Checkout</Button>
+        {/* send newOrder to ConfirmModal via props */}
+        <ConfirmModal newOrder={newOrder}/>
       </div>
     </div>
   )

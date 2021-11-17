@@ -1,4 +1,21 @@
+.App {
+  text-align: center;
+}
 
+.App-header {
+  background-color: rgb(71, 71, 134);
+  height: 100px;
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+#headerTable{
+  width: 90%;
+  max-width: 1100px;
+  min-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #element1{
 font-size: 2em;
@@ -29,6 +46,7 @@ max-width: 60em;
   background-color: rgb(214, 214, 237);
   width: 90%;
   max-width: 1100px;
+  min-width: 350px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 15px;
@@ -55,13 +73,4 @@ max-width: 60em;
   justify-content: space-between;
 
 
-}
-
-
-
-.App-header {
-  background-color: rgb(71, 71, 134);
-  height: 70px;
-  padding: 20px;
-  color: white;
 }

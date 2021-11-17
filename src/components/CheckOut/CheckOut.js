@@ -16,11 +16,13 @@ function Checkout() {
   const cart = useSelector(store => store.cart);
   const customerInfo = useSelector(store => store.customerInfo);
 
+  //on page load, run the pizzaId function 
   useEffect(() =>{
     pizzaId();
   }, [] );
 
-  //create a function that loops through the cart reducer and returns an array with all of the ids and quantities of the pizzas in the cart as an object 
+//create a function that loops through the cart reducer and push all of the ids and quantities of the pizzas in the cart as an object to the pizzaIds array 
+//the pizzaIds has to be outside the function in order for it to be accessible by anything outside the pizzaId function 
 let pizzaIds = [];
 const pizzaId = () =>{
   for (let i=0; i<cart.length; i++){
@@ -41,6 +43,7 @@ const pizzaId = () =>{
     type: customerInfo.type,
     //waiting for Paran & Rachel to bring the total to the store 
     total: 20,
+    //pizzas brings in the pizzaId array 
     pizzas: pizzaIds
 })
 

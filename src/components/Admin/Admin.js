@@ -15,7 +15,7 @@ useEffect(() =>{
 const getAdmin = ()=>{
   axios.get('/api/order').then((res) => { 
     console.log('Successful AXIOS GET', res.data);
-    setAdminOrders([...adminOrders, res.data]);
+    setAdminOrders(res.data);
     console.log(adminOrders)
   }).catch((err) => {
     console.log('Error in AXIOS GET');

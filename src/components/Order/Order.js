@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
+import {Table}from 'react-bootstrap';
 
 
 function Order(props) {
@@ -9,17 +10,22 @@ function Order(props) {
 
   return (
     <div>
-      <h1>Order</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Total</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
       <tr>
-        <th>Customer</th> 
-        <th>Total</th> 
-        <th>Time Ordered</th>
-        </tr>
-        <tr>
-      <td><p>{props.order.customer_name}</p></td>
-      <td><p>{props.order.total}</p></td>
-      <td><p>{props.order.time}</p></td>
+      <td>{props.order.customer_name}</td>
+      <td>{props.order.total}</td>
+      <td>{props.order.time}</td>
       </tr>
+      </tbody>
+      </Table>
       </div>
   )
 }

@@ -1,7 +1,9 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
+import {Table}from 'react-bootstrap';
 import axios from 'axios';
 import Order from '../Order/Order';
+
 
 
 function Admin(props) {
@@ -32,11 +34,10 @@ const buttonTest = ()=>{
   return (
     <div>
       <h1>Admin</h1>
-      {adminOrders.map( order =>(<Order order={order} key={order.id}/>))}
-      <button onClick={buttonTest}>Test</button>
-
-
-    </div>
+          <tr>
+            {adminOrders.map( order =>(<Order order={order} key={order.id}/>))}
+            </tr>
+      </div>
   )
 }
 

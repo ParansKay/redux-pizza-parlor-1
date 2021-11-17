@@ -14,22 +14,13 @@ function CustomerInfo(){
     const [zip, setZip] = useState('');
     const [type, setType] = useState('');
 
-    const totalPrice = useSelector(store => store.totalPrice);
-
     const isEnabled = name.length > 0 && address.length > 0 && city.length > 0 && zip.length > 0 && type.length > 0;
-
 
     const handleSubmit = event => { event.preventDefault();
 
         console.log('adding CUSTOMER info for:', {name});
 
-        dispatch({type: 'ADD_CUSTOMER', payload:{
-            customer_name: name, 
-            street_address: address,
-            city: city,
-            zip: zip,
-            type: type,
-        }})
+        dispatch({type: 'ADD_CUSTOMER', payload:{ name, address, city, zip, type, }})
         setName('');
         setAddress('');
         setCity('');

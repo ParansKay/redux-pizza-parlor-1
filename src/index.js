@@ -9,9 +9,6 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger'; //this essentially acts as a console log 
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
 // reducer
 // creating a global variable "pizza", that is given a state and action 
 // every time an action takes place, it will run the reducer
@@ -45,13 +42,24 @@ const cart = (state = [], action) => {
   return state;
 }; // end pizzaListReducer
 
+const orderStore = (state = [], action) => {
+
+  if (action.type === `SET_ORDERS`) {
+      return action.payload;
+  }
+
+  return state;
+
+}
+
 // a store
 const storeInstance = createStore(
     combineReducers(
       {
         pizzaListReducer,
         customerInfo,
-        cart
+        cart,
+        orderStore
       }
     ),
     applyMiddleware(

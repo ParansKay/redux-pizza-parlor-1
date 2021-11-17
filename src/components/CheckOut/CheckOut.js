@@ -1,84 +1,85 @@
-import {useDispatch, useSelector} from 'react-redux';
-import {useState, useEffect } from 'react';
-import '../CheckOut/Checkout.css'
-import {Table}from 'react-bootstrap';
-import {Button} from '@material-ui/core';
+import './Checkout.css'
+import {useSelector} from 'react-redux'
 import axios from 'axios';
-import CheckoutItem from '../CheckOutItem/CheckOutItem';
+import {useDispatch} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
+
 
 
 function Checkout() {
-  
-  // const reducerName = useSelector(store => store.reducerName);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  //****waiting to change pizzaListReducer to the new store item of pizzas that were added to the cart 
-  const pizzaListReducer = useSelector(store => store.pizzaListReducer);
 
-  //create a variable that stores an object for the entire order 
-  //****waiting to get the reducer of customer information from store 
-  const[ newOrder, setNewOrder ]=useState({
-    customer_name: "Hannah", //waiting for store data
-    street_address: "hiawatha ave",//waiting for store data
-    city: "minneapolis",//waiting for store data
-    zip: "55406",//waiting for store data
-    type: "takeout",//waiting for store data
-    total: 20,//waiting for store data
-    pizzas: [{
-      id: 2, //waiting for store data
-      quantity: 3 //waiting for store data
-    }] 
-})
+  const checkoutItemData = useSelector(store => store.cart);
+  const checkoutCustomer = useSelector(store => store.customerInfo);
+ 
 
-  //create an axios post req to send over the new order object
-  const addOrder = ()=>{
-    console.log( 'in addItem' );
-    axios.post( '/api/order', newOrder ).then ( (response)=>{
-        console.log('back from POST:', response.data);
-        alert('order added');
-    }).catch( (err)=>{
-        console.log(err);
-        alert('nope');
+  const handleCheckout = () => {
+    console.log('click');
+    const order = {
+      customer_name: checkoutCustomer.name,
+      street_address: checkoutCustomer.street_address,
+      city: checkoutCustomer.city,
+      zip: checkoutCustomer.zip,
+      type: checkoutCustomer.type,
+      pizzas: checkoutItemData
+    }
+    console.log(order);
+    axios({
+      method: 'POST',
+      url: '/api/order', 
+      data: order
+    }).then(response =>  {
+      console.log('added an order to the server', response);
+    
+    }).catch(error => {
+      console.log('Unable to add order', error);
+      alert('Unable to add order');
     })
-}
-
+    dispatch({type: 'RESET_CART'});
+    dispatch({type: 'RESET_PRICE'});
+    navigate('/checkout');
+  }
 
   return (
-    <div className="checkout-page">
+    <>
+      <div className="checkoutCustomer">
+        <div className="checkoutCustomer">
       <h2>Step 3: Checkout</h2>
-      <div className="userInfo-Delivery-Takeout">
-        <div className="userInfo">
-          {/* ****waiting to get the reducer of customer information from store  */}
-          <p>John Smith</p>
-          <p>555 Applewood Lane</p>
-          <p>Minneapolis, MN</p>
+          <p>{checkoutCustomer.name}<br />
+          {checkoutCustomer.address}<br />
+          {checkoutCustomer.city + ', MN ' + checkoutCustomer.zip}</p>
         </div>
-        <div className="delivery-takeout">
-          <p className="forDelivery">For Delivery/Takeout</p>
-        </div>  
-      </div>
-      
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* *** waiting to map through the cart that will be added to the store instead of pizzaListReducer */}
-          {
-            pizzaListReducer.map( pizza =>(<CheckoutItem className="itemBox" pizza={pizza} key={pizza.id}/>))
-          }
-        </tbody>
-      </Table>
-      <p className="total">Total:</p>
-      <div className="checkoutButton">
-        <Button onClick={addOrder} className="primaryButton" variant="contained">Checkout</Button>
-      </div>
+        <div className="checkoutType">
+          <h2>{checkoutCustomer.type}</h2>
+        </div>
+        <div className="checkoutList">
+          <table>
+            <thead>
+              <tr>
+                <td>Pizza</td>
+                <td>Cost</td>
+              </tr>
+            </thead>
+            <tbody>
+              {checkoutItemData.map( itemData =>
+              <tr key={itemData.id}>
+                <td>{itemData.name}</td>
+                <td>{itemData.price}</td>
+              </tr>
+              )}
+            </tbody>
+          </table>
+          <h3 className="total">
 
-    </div>
-  )
+          </h3>
+          <button onClick={handleCheckout}>Checkout</button>
+        </div>
+      </div> 
+    </>
+  );
 }
 
 export default Checkout;

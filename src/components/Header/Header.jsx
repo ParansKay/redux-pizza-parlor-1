@@ -36,22 +36,23 @@ function Header() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <table id="headerTable">
-        {/* <colgroup>
-          <col width="150">
-          <col width="150">
-          </colgroup> */}
-          <tr className="borderTest">
-            <th id="element1">Prime Pizza Test</th>
-            {/* <th><ShoppingCartIcon/></th> */}
-          </tr>
-          <tr>
-          <th id="element2" ><ShoppingCartIcon className="icon"/>total: ${cartTotal}</th>
-          </tr>
-        </table>
-      </header>
-
+      <div className="header">
+        <header className='App-header'>
+          <table id="headerTable">
+          {/* <colgroup>
+            <col width="150">
+            <col width="150">
+            </colgroup> */}
+            <tr className="borderTest">
+              <th id="element1">Prime Pizza Test</th>
+              {/* <th><ShoppingCartIcon/></th> */}
+            </tr>
+            <tr>
+            <th id="element2" ><ShoppingCartIcon className="icon"/>total: ${cartTotal}</th>
+            </tr>
+          </table>
+        </header>
+      </div>    
     </div>
   )
 }

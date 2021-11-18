@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import '../App/App.css';
+import '../App/App.css'
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
 import Checkout from '../CheckOut/CheckOut';
@@ -37,20 +37,18 @@ function App(props) {
 
 
   return (
-    <div className='App'>
-      <header className='App-header'>
+    <div>
       <Header />
-      </header>
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={ <PizzaList /> } ></Route>
-          <Route path="/checkout" element={ <Checkout /> } ></Route>
-          <Route path="/admin" element={ <Admin /> } ></Route>
-
-          <Route path="/customerInfo" element={ <CustomerInfo /> } ></Route>
-        </Routes>
-      </BrowserRouter>
+      <div className='App'>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={ <PizzaList /> } ></Route>
+            <Route path="/checkout" element={ <Checkout /> } ></Route>
+            <Route path="/admin" element={ <Admin /> } ></Route>
+            <Route path="/customerInfo" element={ <CustomerInfo /> } ></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
 
   );

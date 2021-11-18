@@ -27,6 +27,7 @@ function PizzaItem(props) {
 
   }
 
+
   // when Remove From Cart button is pressed, send pizza id to reducer for splicing
   const removeFromCart = () => {
 
@@ -34,7 +35,7 @@ function PizzaItem(props) {
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].id === props.pizza.id) {
         console.log('cart[i].id', cart[i].id, 'i:', i);
-        dispatch({ type: 'REMOVE_FROM_CART', payload: i });
+        dispatch({ type: 'REMOVE_FROM_CART', payload: {index: i, price: props.pizza.price} });
         // change buttonState to true
         setButtonState(!buttonState);
         return;

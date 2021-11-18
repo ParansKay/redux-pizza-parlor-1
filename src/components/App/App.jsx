@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../App/App.css'
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
-import Checkout from '../CheckOut/CheckOut';
+import Checkout from '../Checkout/Checkout';
 import Admin from '../Admin/Admin';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';

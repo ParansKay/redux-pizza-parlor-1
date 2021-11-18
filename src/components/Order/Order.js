@@ -10,22 +10,11 @@ function Order(props) {
 
   return (
     <div>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Total</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
       <tr>
       <td>{props.order.customer_name}</td>
       <td>{props.order.total}</td>
       <td>{props.order.time}</td>
       </tr>
-      </tbody>
-      </Table>
       </div>
   )
 }

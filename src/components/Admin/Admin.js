@@ -34,9 +34,20 @@ const buttonTest = ()=>{
   return (
     <div>
       <h1>Admin</h1>
+      <Table striped bordered hover>
+      <thead>
+          <tr>
+            <th>Name</th>
+            <th>Total</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
           <tr>
             {adminOrders.map( order =>(<Order order={order} key={order.id}/>))}
             </tr>
+            </tbody>
+      </Table>
       </div>
   )
 }

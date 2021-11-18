@@ -12,7 +12,7 @@ function Order(props) {
     <tr>
       <td>{props.order.customer_name}</td>
       <td>{props.order.total}</td>
-      <td>{props.order.time}</td>
+      <td>{props.order.time.split("T")[0] + " " + props.order.time.split("T")[1].split(".")[0]}</td>
     </tr>
   )
 }

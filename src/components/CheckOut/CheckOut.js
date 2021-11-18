@@ -1,12 +1,14 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
-import "../Checkout/Checkout.css"
+import '../CheckOut/Checkout.css'
 import {Table}from 'react-bootstrap';
-import {Button} from '@material-ui/core'
+import {Button} from '@material-ui/core';
 import axios from 'axios';
 import CheckoutItem from '../CheckoutItem/CheckOutItem';
 import { Link } from 'react-router-dom';
 import ConfirmModal from './ConfirmModal';
+
+
 
 
 

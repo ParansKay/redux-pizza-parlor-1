@@ -1,4 +1,5 @@
 .checkout-page{
+    border: 1px solid black;
     padding: 5px 20px;
 }
 
@@ -31,10 +32,4 @@
     color:white !important;
     background-color:  red !important;
     
-}
-
-
-.backButton{
-    color: white;
-    background: #6c6cbf;
 }

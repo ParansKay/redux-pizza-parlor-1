@@ -32,6 +32,18 @@ const customerInfo = (state = [], action) => {
 
 }
 
+const cartTotal = (state = 0, action) => {
+  if (action.type === 'ADD_TO_CART') {
+    let price = Number(action.payload.price)
+    return Math.round((state + price)*100)/100;
+  }
+  else if (action.type === 'REMOVE_FROM_CART') {
+    let price = Number(action.payload.price)
+    return Math.round((state - price)*100)/100;
+  }
+  return state;
+}; // end pizzaListReducer
+
 const cart = (state = [], action) => {
   if (action.type === 'ADD_TO_CART') {
     state = [...state, action.payload];
@@ -39,7 +51,7 @@ const cart = (state = [], action) => {
   }
   else if (action.type === 'REMOVE_FROM_CART') {
     console.log('action.payload:', action.payload);
-    state.splice(action.payload, 1);
+    state.splice(action.payload.index, 1);
     return state;
   }
   return state;
@@ -51,7 +63,8 @@ const storeInstance = createStore(
       {
         pizzaListReducer,
         customerInfo,
-        cart
+        cart,
+        cartTotal
       }
     ),
     applyMiddleware(

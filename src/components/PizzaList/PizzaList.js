@@ -9,11 +9,11 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 function PizzaList(props) {
 
   const dispatch = useDispatch();
-  
+
 
   // const [buttonState, setButtonState] = useState(null);
 
-  
+
   // const getCustomerInfo = () => {
   //   dispatch({ type: 'CUSTOMER_INFO'});
 
@@ -25,21 +25,29 @@ function PizzaList(props) {
   const pizzaListReducer = useSelector(store => store.pizzaListReducer);
 
   return (
-    <div id="pizzaList">
-      {/* <h1>PizzaList</h1>
+    <div>
+      <div id="pizzaListButtonDiv">
+        <Link to="/customerinfo"><Button className="pizzaListButton" variant="contained" color="secondary" size="medium">
+          Customer Info
+        </Button>
+        </Link>
+
+      </div>
+      <div className="pizzaList">
+
+
+        {/* <h1>PizzaList</h1>
       <p>{JSON.stringify(pizzaListReducer)}</p> */}
-      {/* map through the pizzaListReducer and display each result in a PizzaItem component */}
-      {pizzaListReducer.map(pizza => (<PizzaItem className="itemBox" pizza={pizza} key={pizza.id} />))}
+        {/* map through the pizzaListReducer and display each result in a PizzaItem component */}
+        {pizzaListReducer.map(pizza => (<PizzaItem className="itemBox" pizza={pizza} key={pizza.id} />))}
 
-<Link to="/customerinfo"><Button className="pizzaListButton" variant="contained" color="secondary" size="small">
-              Customer Info
-            </Button>
-            </Link>
 
-    
-      
+
+
+
+      </div >
     </div>
- 
+
   )
 }
 

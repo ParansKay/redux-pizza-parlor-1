@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../App/App.css'
 import PizzaList from '../PizzaList/PizzaList';
 import { useState, useEffect } from 'react';
-import Checkout from '../Checkout/Checkout';
+import CheckOut from '../CheckOut/CheckOut';
 import Admin from '../Admin/Admin';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
@@ -19,20 +19,20 @@ function App(props) {
     console.log('in useEffect');
     getPizzaList();
   }, []);
-  
-  
+
+
   const dispatch = useDispatch(); //this code allows us to call the redux listener
 
   const getPizzaList = () => {
-    axios.get('/api/pizza').then((res) => { 
-        console.log('Successful AXIOS GET', res);
-        dispatch({
-          type: 'GET_PIZZA_LIST',
-          payload: res.data,
-        });
-      }).catch((err) => {
-        console.log('Error in AXIOS GET');
+    axios.get('/api/pizza').then((res) => {
+      console.log('Successful AXIOS GET', res);
+      dispatch({
+        type: 'GET_PIZZA_LIST',
+        payload: res.data,
       });
+    }).catch((err) => {
+      console.log('Error in AXIOS GET');
+    });
   };
 
 
@@ -42,10 +42,10 @@ function App(props) {
       <div className='App'>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={ <PizzaList /> } ></Route>
-            <Route path="/checkout" element={ <Checkout /> } ></Route>
-            <Route path="/admin" element={ <Admin /> } ></Route>
-            <Route path="/customerInfo" element={ <CustomerInfo /> } ></Route>
+            <Route path="/" element={<PizzaList />} ></Route>
+            <Route path="/checkout" element={<CheckOut />} ></Route>
+            <Route path="/admin" element={<Admin />} ></Route>
+            <Route path="/customerInfo" element={<CustomerInfo />} ></Route>
           </Routes>
         </BrowserRouter>
       </div>

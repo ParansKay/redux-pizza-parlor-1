@@ -1,6 +1,6 @@
-import {useDispatch, useSelector} from 'react-redux';
-import {useState, useEffect } from 'react';
-import {Table}from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 import axios from 'axios';
 import Order from '../Order/Order';
 
@@ -8,34 +8,34 @@ import Order from '../Order/Order';
 
 function Admin(props) {
 
-useEffect(() =>{
+  useEffect(() => {
     getAdmin();
-  }, [] );
+  }, []);
 
-  const [adminOrders, setAdminOrders]= useState([]);
+  const [adminOrders, setAdminOrders] = useState([]);
 
-const getAdmin = ()=>{
-  axios.get('/api/order').then((res) => { 
-    console.log('Successful AXIOS GET', res.data);
-    setAdminOrders(res.data);
+  const getAdmin = () => {
+    axios.get('/api/order').then((res) => {
+      console.log('Successful AXIOS GET', res.data);
+      setAdminOrders(res.data);
+      console.log(adminOrders)
+    }).catch((err) => {
+      console.log('Error in AXIOS GET');
+    })
+  }
+
+
+  const buttonTest = () => {
     console.log(adminOrders)
-  }).catch((err) => {
-    console.log('Error in AXIOS GET');
-  })
-}
-  
-
-const buttonTest = ()=>{
-  console.log(adminOrders)
-}
+  }
   // const reducerName = useSelector(store => store.reducerName);
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="adminDiv">
       <h1>Admin</h1>
       <Table striped bordered hover>
-      <thead>
+        <thead>
           <tr>
             <th>Name</th>
             <th>Total</th>
@@ -43,12 +43,12 @@ const buttonTest = ()=>{
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {adminOrders.map( order =>(<Order order={order} key={order.id}/>))}
-            </tr>
-            </tbody>
+
+          {adminOrders.map(order => (<Order order={order} key={order.id} />))}
+
+        </tbody>
       </Table>
-      </div>
+    </div>
   )
 }
 

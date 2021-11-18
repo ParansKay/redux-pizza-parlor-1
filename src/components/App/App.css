@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .header{
   position: fixed;
@@ -49,14 +49,14 @@ max-width: 60em;
 }
 
 
-#pizzaList{
+.pizzaList{
   background-color: rgb(214, 214, 237);
   width: 90%;
   max-width: 1100px;
   min-width: 350px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 120px;
+  margin-top: 170px;
   padding-top: 15px;
   padding-left: 15px;
   display: flex;
@@ -81,4 +81,30 @@ max-width: 60em;
   justify-content: space-between;
 
 
+}
+
+.customerInformation{
+  text-align: center;
+  margin-top: 120px;
+}
+
+#pizzaListButtonDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  margin-top: 120px;
+  width: 90%;
+  max-width: 1100px;
+  min-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100
+}
+
+.adminDiv{
+  margin-top: 120px;
 }

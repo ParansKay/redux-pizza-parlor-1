@@ -1,10 +1,10 @@
-import {useDispatch, useSelector} from 'react-redux';
-import {useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import '../CheckOut/Checkout.css'
-import {Table}from 'react-bootstrap';
-import {Button} from '@material-ui/core';
+import { Table } from 'react-bootstrap';
+import { Button } from '@material-ui/core';
 import axios from 'axios';
-import CheckoutItem from '../CheckoutItem/CheckOutItem';
+import CheckOutItem from '../CheckOutItem/CheckOutItem';
 import { Link } from 'react-router-dom';
 import ConfirmModal from './ConfirmModal';
 
@@ -19,26 +19,26 @@ function Checkout() {
   const customerInfo = useSelector(store => store.customerInfo);
 
   //on page load, run the pizzaId function 
-  useEffect(() =>{
+  useEffect(() => {
     pizzaId();
-  }, [] );
+  }, []);
 
-//create a function that loops through the cart reducer and push all of the ids and quantities of the pizzas in the cart as an object to the pizzaIds array 
-//the pizzaIds has to be outside the function in order for it to be accessible by anything outside the pizzaId function 
-let pizzaIds = [];
-const pizzaId = () =>{
-  for (let i=0; i<cart.length; i++){
-    pizzaIds.push({
-      id: cart[i].id,
-      quantity: 1
-    });
+  //create a function that loops through the cart reducer and push all of the ids and quantities of the pizzas in the cart as an object to the pizzaIds array 
+  //the pizzaIds has to be outside the function in order for it to be accessible by anything outside the pizzaId function 
+  let pizzaIds = [];
+  const pizzaId = () => {
+    for (let i = 0; i < cart.length; i++) {
+      pizzaIds.push({
+        id: cart[i].id,
+        quantity: 1
+      });
+    }
   }
-}
 
   //create a variable that stores an object for the entire order 
   //pass the new order via props to ConfirmModal to be able to do the post req in CornfirmModal 
-  const[ newOrder, setNewOrder ]=useState({
-    customer_name: customerInfo.customer_name, 
+  const [newOrder, setNewOrder] = useState({
+    customer_name: customerInfo.customer_name,
     street_address: customerInfo.street_address,
     city: customerInfo.city,
     zip: customerInfo.zip,
@@ -47,7 +47,7 @@ const pizzaId = () =>{
     total: 20,
     //pizzas brings in the pizzaId array 
     pizzas: pizzaIds
-})
+  })
 
 
 
@@ -57,16 +57,16 @@ const pizzaId = () =>{
       <h2>Step 3: Checkout</h2>
       <div className="userInfo-Delivery-Takeout">
         <div className="userInfo">
-            {/* for customer info, use the newOrder variable with the specific info to display */}
-            <p>{newOrder.customer_name}</p>
-            <p>{newOrder.street_address}</p>
-            <p>{newOrder.city} {newOrder.zip}</p>
+          {/* for customer info, use the newOrder variable with the specific info to display */}
+          <p>{newOrder.customer_name}</p>
+          <p>{newOrder.street_address}</p>
+          <p>{newOrder.city} {newOrder.zip}</p>
         </div>
         <div className="delivery-takeout">
           <p className="forDelivery">{newOrder.type}</p>
-        </div>  
+        </div>
       </div>
-      
+
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -77,7 +77,7 @@ const pizzaId = () =>{
         <tbody>
           {/* map through the cart from the store to display each one of the items added */}
           {
-            cart.map( pizza =>(<CheckoutItem className="itemBox" pizza={pizza} key={pizza.id}/>))
+            cart.map(pizza => (<CheckOutItem className="itemBox" pizza={pizza} key={pizza.id} />))
           }
         </tbody>
       </Table>
@@ -86,7 +86,7 @@ const pizzaId = () =>{
       <p className="total">Total:  </p>
       <div className="checkoutButton">
         {/* send newOrder to ConfirmModal via props */}
-        <ConfirmModal newOrder={newOrder}/>
+        <ConfirmModal newOrder={newOrder} />
       </div>
     </div>
   )

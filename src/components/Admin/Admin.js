@@ -1,7 +1,9 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
+import {Table}from 'react-bootstrap';
 import axios from 'axios';
 import Order from '../Order/Order';
+
 
 
 function Admin(props) {
@@ -15,7 +17,7 @@ useEffect(() =>{
 const getAdmin = ()=>{
   axios.get('/api/order').then((res) => { 
     console.log('Successful AXIOS GET', res.data);
-    setAdminOrders([...adminOrders, res.data]);
+    setAdminOrders(res.data);
     console.log(adminOrders)
   }).catch((err) => {
     console.log('Error in AXIOS GET');
@@ -32,11 +34,21 @@ const buttonTest = ()=>{
   return (
     <div>
       <h1>Admin</h1>
-      {adminOrders.map( order =>(<Order order={order} key={order.id}/>))}
-      <button onClick={buttonTest}>Test</button>
-
-
-    </div>
+      <Table striped bordered hover>
+      <thead>
+          <tr>
+            <th>Name</th>
+            <th>Total</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {adminOrders.map( order =>(<Order order={order} key={order.id}/>))}
+            </tr>
+            </tbody>
+      </Table>
+      </div>
   )
 }
 

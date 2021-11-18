@@ -10,10 +10,11 @@ function CheckoutItem(props) {
   const dispatch = useDispatch();
 
   return (
-      <tr>
+    <tr>
         <td>{props.pizza.name}</td>
         <td>{props.pizza.price}</td>
-      </tr>
+        </tr>
+
   )
 }
 

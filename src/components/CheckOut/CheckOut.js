@@ -16,6 +16,7 @@ function Checkout() {
   //bring cart & customer info items from the store 
   const cart = useSelector(store => store.cart);
   const customerInfo = useSelector(store => store.customerInfo);
+  const cartTotal = useSelector (store => store.cartTotal);
 
   //on page load, run the pizzaId function 
   useEffect(() => {
@@ -43,7 +44,7 @@ function Checkout() {
     zip: customerInfo.zip,
     type: customerInfo.type,
     //waiting for Paran & Rachel to bring the total to the store 
-    total: 20,
+    total: cartTotal,
     //pizzas brings in the pizzaId array 
     pizzas: pizzaIds
   })
@@ -82,7 +83,7 @@ function Checkout() {
       </Table>
 
       {/* <------need to add total to the store, currently it's in header and it isn't being dispatched to the store (waiting to do newOrder.total) -----> */}
-      <p className="total">Total:  </p>
+      <p className="total">Total: ${cartTotal} </p>
       <div className="checkoutButton">
         {/* send newOrder to ConfirmModal via props */}
         <ConfirmModal newOrder={newOrder} />

@@ -15,6 +15,8 @@ function CustomerInfo() {
     const [type, setType] = useState('');
 
     const totalPrice = useSelector(store => store.totalPrice);
+    const cartTotal = useSelector (store => store.cartTotal);
+
 
     const isEnabled = name.length > 0 && address.length > 0 && city.length > 0 && zip.length > 0 && type.length > 0;
 
@@ -31,6 +33,7 @@ function CustomerInfo() {
                 city: city,
                 zip: zip,
                 type: type,
+                total: cartTotal
             }
         })
         setName('');
@@ -59,7 +62,7 @@ function CustomerInfo() {
     <br />
                 <input onChange={(event) => setType(event.target.value)} type="radio" id="delivery" name="type" value="delivery" /> Delivery
     <br />
-                <h3>Total: ${totalPrice}</h3> <button disabled={!isEnabled}>NEXT</button>
+                <h3>Total: ${cartTotal}</h3> <button disabled={!isEnabled}>NEXT</button>
 
             </form>
 
